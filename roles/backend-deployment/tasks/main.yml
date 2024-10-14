@@ -1,13 +1,13 @@
 ---
 - name: Pull image from repository
   docker_image:
-    name: brianbwire/brian-yolo-backend:v1.0.0
+    name: perischepkemoi/yolo-backend:v1.0.1
     source: pull
 
 - name: Create Node.js Backend Container
   docker_container:
-    name: brian-yolo-backend
-    image: brianbwire/brian-yolo-backend:v1.0.0
+    name: yolo-backend
+    image: perischepkemoi/yolo-backend:v1.0.1
     networks:
       - name: app-net
     ports:
