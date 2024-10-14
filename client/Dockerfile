@@ -13,8 +13,13 @@ RUN npm install --only=production
 # Copy the rest of the application code to the container
 COPY . .
 
+# Run the build command to create optimized production files
+RUN npm run build
 # Step 2: Final stage for production (using Alpine for a lightweight runtime)
 FROM alpine:3.16
+
+# Install Node.js and npm in the final stage
+RUN apk add --no-cache nodejs npm
 
 WORKDIR /app
 
