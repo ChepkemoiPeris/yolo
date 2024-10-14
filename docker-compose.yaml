@@ -11,10 +11,10 @@ version: "3.8"
 services:
 
   #Builds the frontend Docker image and creates the frontend microservice
-  brian-yolo-client:
-    image: brianbwire/brian-yolo-client:v1.0.0
+  yolo-frontend:
+    image: perischepkemoi/yolo-frontend:v1.0.0
     build: ./client
-    container_name: brian-yolo-client
+    container_name: yolo-frontend
     stdin_open: true
     tty: true
     ports:

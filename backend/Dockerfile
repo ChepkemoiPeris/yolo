@@ -25,4 +25,4 @@ COPY --from=build /usr/src/app /app
 EXPOSE 5000
 
 # Define the command to run your app
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
