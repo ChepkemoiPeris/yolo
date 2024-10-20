@@ -24,11 +24,11 @@ Ensure Docker is installed on your machine:
     ```bash
    docker compose up 
 
-    This command will:
+This command will:
 
-    Pull the images for the frontend and backend from the repository.
-    Set up networking between the services.
-    Persist data in MongoDB using Docker volumes.
+Pull the images for the frontend and backend from the repository.
+Set up networking between the services.
+Persist data in MongoDB using Docker volumes.
 
 3. **Access the Application:** 
     - The frontend will be accessible at: http://localhost:80
@@ -43,10 +43,12 @@ Ensure Docker is installed on your machine:
 ![Alt text](image.png)
     
 # Troubleshooting
- **View Running Containers:**
+
+**View Running Containers:**
     ```bash
-    docker ps 
-    
- **View Container Logs:**
+    docker ps
+
+**View Container Logs:**
     ```bash
-    docker logs <container_name>
+    docker ps
+
