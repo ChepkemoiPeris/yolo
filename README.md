@@ -44,11 +44,10 @@ Persist data in MongoDB using Docker volumes.
     
 # Troubleshooting
 
-**View Running Containers:**
+1. **View Running Containers:**
     ```bash
-    docker ps
+   docker ps 
 
-**View Container Logs:**
+2. **View Container Logs:**
     ```bash
-    docker ps
-
+   docker logs <container_name> 
