@@ -24,16 +24,16 @@ Ensure Docker is installed on your machine:
     ```bash
    docker compose up 
 
-This command will:
+    This command will:
 
-Pull the images for the frontend and backend from the repository.
-Set up networking between the services.
-Persist data in MongoDB using Docker volumes.
+    Pull the images for the frontend and backend from the repository.
+    Set up networking between the services.
+    Persist data in MongoDB using Docker volumes.
 
 3. **Access the Application:** 
-The frontend will be accessible at: http://localhost:80
-The backend will be running at: http://localhost:5000
-MongoDB will be running at: mongodb://localhost:27017
+    - The frontend will be accessible at: http://localhost:80
+    - The backend will be running at: http://localhost:5000
+    - MongoDB will be running at: mongodb://localhost:27017
 
 4. **Shutting Down the Application:** 
     ```bash
@@ -46,6 +46,7 @@ MongoDB will be running at: mongodb://localhost:27017
  **View Running Containers:**
     ```bash
     docker ps 
+    
  **View Container Logs:**
     ```bash
     docker logs <container_name>
