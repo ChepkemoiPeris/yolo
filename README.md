@@ -37,8 +37,7 @@ Persist data in MongoDB using Docker volumes.
 
 3. **Access the Application:** 
     - The frontend will be accessible at: http://localhost:80
-    - The backend will be running at: http://localhost:5000
-    - MongoDB will be running at: mongodb://localhost:27017
+    - The backend will be running at: http://localhost:5000 
 
 4. **Shutting Down the Application:** 
     ```bash
@@ -55,7 +54,7 @@ This option is ideal if you want to automate the provisioning of a virtual envir
 
 2. **Start Vagrant to Provision the Environment:**
     ```bash
-   vagrant up
+   vagrant up --provision
 
 This command will:
 
@@ -69,7 +68,7 @@ create a virtual machine and configure Docker (including setting up network and 
 To completely remove the Vagrant environment:
     ```bash
     vagrant destroy
-    
+
 # Screenshot of Deployed Docker Images
 ![Alt text](image.png)
     
