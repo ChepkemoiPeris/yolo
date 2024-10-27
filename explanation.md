@@ -97,26 +97,29 @@ This structured approach to deploying the services ensures that each component i
 2. **frontend-deployment:**
 
 - Deploys the frontend service by pulling the necessary Docker image and creating the container within the Docker network.
- **Tasks**
-- **Pull Image from Repository:** Uses the docker_image module to pull the frontend image from the repository, ensuring we use the latest version.
-- **Create Frontend Container:** Uses docker_container to launch the frontend service. It binds the required ports (e.g., 80) and attaches the container to the network (app-net).  
+
+    **Tasks**
+    - **Pull Image from Repository:** Uses the docker_image module to pull the frontend image from the repository, ensuring we use the latest version.
+    - **Create Frontend Container:** Uses docker_container to launch the frontend service. It binds the required ports (e.g., 80) and attaches the container to the network (app-net).  
 
 - Deploying the frontend after Docker setup and network creation allows the frontend service to communicate with other components on the network once they’re up
 
 3. **setup-mongodb:**
 
 - Deploys the MongoDB container and ensures it can persist data using the pre-created Docker volume and bridge network.
-**Tasks**
-- **Pull MongoDB Docker Image:** Uses docker_image to pull the latest MongoDB image
-- **Run MongoDB Container:** Launches MongoDB with docker_container, exposing port 27017 for database access and linking the volume (app-mongo-data) to /data/db for persistent data storage.  
+
+    **Tasks**
+    - **Pull MongoDB Docker Image:** Uses docker_image to pull the latest MongoDB image
+    - **Run MongoDB Container:** Launches MongoDB with docker_container, exposing port 27017 for database access and linking the volume (app-mongo-data) to /data/db for persistent data storage.  
 
 - MongoDB is set up after the frontend because the frontend relies primarily on the backend, which will be deployed next and will connect directly to MongoDB for data handling.
 
 4. **backend-deployment:**
 
 - Deploys the backend service, which is configured to connect with MongoDB and facilitate API communications between the frontend and database.
-**Tasks**
-- **Pull MongoDB Docker Image:** Uses docker_image to pull the backend image, ensuring an up-to-date deployment.
-- **Create Node.js Backend Container:** Deploys the backend container using docker_container, attaches it to the network, and exposes the required ports. Additionally, the backend container is configured to start with the specific command provided.  
+
+    **Tasks**
+    - **Pull MongoDB Docker Image:** Uses docker_image to pull the backend image, ensuring an up-to-date deployment.
+    - **Create Node.js Backend Container:** Deploys the backend container using docker_container, attaches it to the network, and exposes the required ports. Additionally, the backend container is configured to start with the specific command provided.  
 
 - Deploying the backend last ensures that all necessary services, including MongoDB, are available. The backend can then connect to MongoDB and be accessible by the frontend, completing the application setup.
