@@ -3,6 +3,8 @@ app-mongo-data/
 vars.yml
 vault.yml
 .vagrant/
+.vagrant/*
+.vagrant
 .vscode/
 .vscode
 .vscode/*
