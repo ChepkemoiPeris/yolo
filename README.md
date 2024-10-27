@@ -9,11 +9,16 @@ Docker is used to build and manage these services, while Docker Compose orchestr
 
 # Requirements
 
-Ensure Docker is installed on your machine:
+Ensure you have the following installed:
 
-- [Docker](https://docs.docker.com/engine/install/)
+- [Vagrant](https://www.vagrantup.com/downloads) - for setting up and managing virtualized development environments
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) - for configuring the VM and provisioning services 
+- [Docker](https://docs.docker.com/engine/install/) - for containerization
 
 # How to Launch the Application
+## Option 1: Using Docker only
+
+This option is ideal if you have Docker installed locally and don’t need a virtual machine.
 
 1. **Clone the Repository:**
    ```bash
@@ -39,6 +44,32 @@ Persist data in MongoDB using Docker volumes.
     ```bash
     docker compose down
 
+## Option 2: Using Vagrant and Ansible
+
+This option is ideal if you want to automate the provisioning of a virtual environment for Docker using Vagrant and Ansible.
+
+1. **Clone the Repository:**
+   ```bash
+   git clone git@github.com:ChepkemoiPeris/yolo.git
+   cd yolo
+
+2. **Start Vagrant to Provision the Environment:**
+    ```bash
+   vagrant up
+
+This command will:
+
+create a virtual machine and configure Docker (including setting up network and volume), mongo, and other dependencies using Ansible.
+
+3. **Access the Application:** 
+    - The frontend will be accessible at: http://localhost:8080
+    - The backend will be running at: http://localhost:5000 
+
+4. **Shutting Down the Application:** 
+To completely remove the Vagrant environment:
+    ```bash
+    vagrant destroy
+    
 # Screenshot of Deployed Docker Images
 ![Alt text](image.png)
     
@@ -51,3 +82,4 @@ Persist data in MongoDB using Docker volumes.
 2. **View Container Logs:**
     ```bash
    docker logs <container_name> 
+
