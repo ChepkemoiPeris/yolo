@@ -1,6 +1,5 @@
 ---
 # tasks file for setup-docker
----
 - name: Update apt package index
   apt:
     update_cache: yes
@@ -35,3 +34,14 @@
     name: docker
     enabled: yes
     state: started
+
+- name: Create Docker network
+  docker_network:
+    name: app-net
+    driver: bridge
+    attachable: true
+
+- name: Create MongoDB data volume
+  docker_volume:
+    name: app-mongo-data  
+    driver: local

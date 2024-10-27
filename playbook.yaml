@@ -2,7 +2,8 @@
 - name: Ansible playbook to run yolo e-commerce docker containers using ansible
   hosts: all
   become: true
-  roles: 
+  roles:
+    - setup-docker 
     - frontend-deployment
     - setup-mongodb   
     - backend-deployment
