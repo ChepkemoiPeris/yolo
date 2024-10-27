@@ -1,16 +1,19 @@
 ---
+# tasks file for setup-backend
+
 - name: Pull image from repository
   docker_image:
-    name: perischepkemoi/yolo-backend:v1.0.1
+    name: "{{ backend_image }}"
     source: pull
 
 - name: Create Node.js Backend Container
   docker_container:
-    name: yolo-backend
-    image: perischepkemoi/yolo-backend:v1.0.1
+    name: "{{ backend_container_name }}"
+    image: "{{ backend_image }}"
     networks:
-      - name: app-net
+      - name: "{{ backend_network }}"
     ports:
-      - "5000:5000"
-    command: "npm start"
+      - "{{ item }}"
+    command: "{{ backend_command }}"
   become: yes
+  loop: "{{ backend_ports }}"

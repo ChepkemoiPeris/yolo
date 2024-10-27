@@ -1,4 +1,7 @@
 ---
-container_name: yolo-backend
-network: app-net
-volume: app-mongo-data/app
+backend_container_name: yolo-backend
+backend_image: perischepkemoi/yolo-backend:v1.0.3
+backend_ports:
+  - "5000:5000"
+backend_network: app-net
+backend_command: "npm start"

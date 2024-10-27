@@ -1,0 +1,6 @@
+---
+frontend_container_name: yolo-frontend
+frontend_image: perischepkemoi/yolo-frontend:v1.0.4
+frontend_ports:
+  - "80:80"
+frontend_network: app-net

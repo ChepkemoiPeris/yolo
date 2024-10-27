@@ -1,0 +1,18 @@
+---
+# tasks file for setup-frontend
+
+- name: Pull image from repository
+  docker_image:
+    name: "{{ frontend_image }}"
+    source: pull
+
+- name: Create Frontend Container
+  docker_container:
+    name: "{{ frontend_container_name }}"
+    image: "{{ frontend_image }}"
+    ports:
+      - "{{ item }}"
+    networks:
+      - name: "{{ frontend_network }}"
+  become: yes
+  loop: "{{ frontend_ports }}"
