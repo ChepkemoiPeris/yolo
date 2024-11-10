@@ -17,6 +17,12 @@ spec:
         image: perischepkemoi/yolo-frontend:v1.0.4
         ports:
         - containerPort: 80
+        env:
+          - name: BACKEND_API_URL
+            valueFrom:
+              configMapKeyRef:
+                name: frontend-config
+                key: BACKEND_API_URL
 ---
 apiVersion: v1
 kind: Service
