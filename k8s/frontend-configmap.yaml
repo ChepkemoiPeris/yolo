@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: frontend-config
+  name: frontend-config 
 data: 
   BACKEND_API_URL: "http://backend-service:5000"
+
