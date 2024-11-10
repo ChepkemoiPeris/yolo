@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: backend-config
 data:
-  MONGO_URL: "mongodb://mongo-service:27017/yolomy"
+  MONGO_URL: "mongodb://mongo-service:27017/yolomy" 

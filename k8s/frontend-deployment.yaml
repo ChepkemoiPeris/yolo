@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: perischepkemoi/yolo-frontend:v1.0.7
+        image: perischepkemoi/yolo-frontend:v1.1.1
         ports:
         - containerPort: 80
         env:
