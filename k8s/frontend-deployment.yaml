@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: perischepkemoi/yolo-frontend:v1.0.5
+        image: perischepkemoi/yolo-frontend:v1.0.7
         ports:
         - containerPort: 80
         env:
-          - name: BACKEND_API_URL
+          - name: REACT_APP_BACKEND_API_URL
             valueFrom:
               configMapKeyRef:
                 name: frontend-config

@@ -18,10 +18,11 @@ class ProductControl extends Component {
             uploadPhoto: null
             
         };
-        this.apiUrl = process.env.BACKEND_API_URL || 'http://localhost:5000';
+        this.apiUrl = process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:5000';
     }
     
     componentDidMount(){
+        console.log("API URL being used now:", this.apiUrl);
         axios.get(`${this.apiUrl}/api/products`)
             .then(res =>{
                 console.log(res)
