@@ -18,8 +18,11 @@ spec:
         ports:
         - containerPort: 5000
         env:
-          - name: MONGO_URL
-            value: "mongodb://mongo:27017/your-database"
+          - name: MONGODB_URI
+            valueFrom:
+              configMapKeyRef:
+                name: mongo-config
+                key: MONGO_URL
 ---
 apiVersion: v1
 kind: Service
