@@ -2,7 +2,7 @@ services:
 
   #Builds the frontend Docker image and creates the frontend microservice
   yolo-frontend:
-    image: perischepkemoi/yolo-frontend:v1.0.4
+    image: perischepkemoi/yolo-frontend:v1.0.5
     build: ./client
     container_name: yolo-frontend 
     ports:
