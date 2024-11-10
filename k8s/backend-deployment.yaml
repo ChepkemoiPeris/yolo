@@ -21,7 +21,7 @@ spec:
           - name: MONGODB_URI
             valueFrom:
               configMapKeyRef:
-                name: mongo-config
+                name: backend-config
                 key: MONGO_URL
 ---
 apiVersion: v1
