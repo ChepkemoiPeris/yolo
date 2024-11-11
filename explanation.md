@@ -123,3 +123,26 @@ This structured approach to deploying the services ensures that each component i
     - **Create Node.js Backend Container:** Deploys the backend container using docker_container, attaches it to the network, and exposes the required ports. Additionally, the backend container is configured to start with the specific command provided.  
 
 - Deploying the backend last ensures that all necessary services, including MongoDB, are available. The backend can then connect to MongoDB and be accessible by the frontend, completing the application setup.
+
+## Explanation of Kubernetes Implementation
+1. **Choice of Kubernetes Objects for Deployment:**
+ 
+**Deployments**
+Frontend and Backend: I used Deployment objects for both the frontend and backend, as these components are stateless and can easily scale horizontally. Deployments provide automated rollouts, rollbacks, and scaling, making them ideal for managing multiple identical stateless replicas.
+**StatefulSets**
+MongoDB: I chose to use a StatefulSet for MongoDB since it requires persistent storage and a stable network identity to retain data integrity between restarts. StatefulSet ensures that the MongoDB pod is recreated with the same identity if it is rescheduled, maintaining the continuity needed for databases.
+
+2. **Method Used to Expose Pods to Internet Traffic:**
+
+**LoadBalancer Services**
+Frontend and Backend Services: To make the frontend and backend accessible externally, I used LoadBalancer services. These services automatically assign external IPs to handle incoming traffic from the internet, enabling users to access the frontend UI and frontend UI to get data from backend API.
+
+**ClusterIP Service for MongoDB**
+
+MongoDB Internal Service: MongoDB is exposed internally using a ClusterIP service. By setting clusterIP: None, the mongo-service operates as a headless service, allowing backend pods to discover MongoDB directly without exposing it to the internet. This improves security and reduces unnecessary external traffic.
+
+3. **Method Used to Expose Pods to Internet Traffic:**
+
+Persistent Volume for MongoDB: The MongoDB StatefulSet includes a volumeClaimTemplate, which ensures each MongoDB pod has access to persistent storage. This configuration guarantees that MongoDB data is retained across pod restarts, enabling a reliable state even if the pod is rescheduled.
+
+No Persistent Storage for Stateless Components: Both the frontend and backend are stateless and do not require persistent storage, as they do not hold critical data. The frontend and backend services can be restarted without loss of data, as MongoDB retains all persistent information.
