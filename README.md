@@ -121,8 +121,8 @@ You will not get this if you are using minikube, you can skip this step.
 
 Once you have the external IP, you can access the application in your browser:
 
-- If you are using minikube you can access application using: minikube service frontend-service
-- If you are on live server you can use:  http://<external-ip>:80
+- If you are using minikube you can access application using: `minikube service frontend-service`
+- If you are on live server you can use:  `http://<external-ip>:80`
 
 
 # Hosted Website
