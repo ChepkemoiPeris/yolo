@@ -93,9 +93,10 @@ Kubernetes manifest files are found on k8s/ folder.
 2. **Navigate to Kubernetes YAML Files:**
 Go to the k8s folder, where your Kubernetes deployment files are stored:
 
-   ```bash 
-   cd yolo/k8s
+```bash 
+cd yolo/k8s 
 ```
+
 3. **Apply the Kubernetes Configurations:**
 Use kubectl to apply the configurations. This will create services, config maps, and deployments as defined in the .yaml files:
 ```bash
@@ -108,7 +109,7 @@ This will:
 - Create services to expose the frontend and backend.
 - Create backend and frontend config maps for configuration management.
 
-4. **Get the External IP**
+4. **Get the External IP:**
 ```bash
 kubectl get svc frontend-service
 
@@ -116,19 +117,13 @@ kubectl get svc frontend-service
 This will display the external IP assigned to the frontend. It might take a few moments for the LoadBalancer to be provisioned. 
 You will not get this if you are using minikube, you can skip this step.
 
-5. **Access the Application**
+5. **Access the Application:**
+
 Once you have the external IP, you can access the application in your browser:
 
-If you are using minikube you can access application using: minikube service frontend-service
-If you are on live server you can use:  http://<external-ip>:80
+- If you are using minikube you can access application using: minikube service frontend-service
+- If you are on live server you can use:  http://<external-ip>:80
 
-6. **Shutting Down the Application**
-To delete the Kubernetes resources (services, deployments, etc.), run:
-
-```bash
-kubectl delete -f .
-
-```
 
 # Hosted Website
 You can access the live version of this application at: http://34.30.39.228/
